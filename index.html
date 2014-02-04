@@ -29,10 +29,10 @@ var url= 'http://gateway.marvel.com:80/v1/public/characters?name=Moon%20Knight&t
 	var api_key= 'a5ad02819feafe2a24e116ff36d7d4a0'
 	var priv_key= 'e57282add1f8d2ad4fe622949da16388f7ba3036'
 	
-	var hash = CryptoJS.MD5(ts + api_key + priv_key);	
+	var hash = CryptoJS.MD5(ts + priv_key + api_key);	
 	
 	
-	url += "&ts="+ts+"&hash="+hash;
+	url += "&ts="+ ts +"&hash=" + hash;
 	
 	$getJSON(url, function(data) {
 
