@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>JSON Sample</title>
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
+	
+	</head>
+<body>
+    <div id="placeholder"></div>
+	
+
+    <script>
+	
+
+var url= 'http://gateway.marvel.com:80/v1/public/characters?name=Moon%20Knight&apikey=a5ad02819feafe2a24e116ff36d7d4a0';
+		
+	
+	var ts = $.now();
+	var api_key= 'a5ad02819feafe2a24e116ff36d7d4a0'
+	var priv_key= 'e57282add1f8d2ad4fe622949da16388f7ba3036'
+	
+	var hash = CryptoJS.MD5(ts + api_key + priv_key);	
+	
+	
+	url += "&ts="+ts+"&hash="+hash;
+	
+	$getJSON(url, function(data) {
+
+	var output="<ul>";
+	output+="<li>" + data.data.results[0].name+ "</li>;
+
+	
+		
+   for (var i in uri) {
+output+="<li> Comic Appearance:" + data.data.results[0].comics.items[i].name + "</li>";
+}
+
+		uri = data.data.results[0].events.items;
+		
+   for (var i in uri) {
+output+="<li> Event Appearance: " + uri[i].name+ "</li>";
+}
+	output+="</ul>";
+	
+	
+	
+
+	
+	//alert(timestamp);
+	//alert(api_key);
+	
+	
+	
+
+	//alert(hash);
+	
+
+	//var pagevar = uri.split('/');
+	//alert(page[page.length-1]);
+	
+	document.getElementById("placeholder").innerHTML=output;
+	document.getElementById("image").innerHTML=profile;
+	});
+
+	</script>
+	</body>
+	
+	
+	
+	
+	
