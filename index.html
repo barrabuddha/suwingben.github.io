@@ -43,7 +43,7 @@ url+= "&ts=" + ts;
 
 	
 		
-   for (var i in uri) {
+   for (var i in data.data.results[0].comics.items) {
 output+="<li> Comic Appearance:" + data.data.results[0].comics.items[i].name + "</li>";
 }
 
