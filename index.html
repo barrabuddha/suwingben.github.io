@@ -14,7 +14,15 @@
     <script>
 	
 
-var url= 'http://gateway.marvel.com:80/v1/public/characters?name=Moon%20Knight&apikey=a5ad02819feafe2a24e116ff36d7d4a0';
+	
+	
+		var ts = $.now();
+	var api_key= 'a5ad02819feafe2a24e116ff36d7d4a0'
+	var priv_key= 'e57282add1f8d2ad4fe622949da16388f7ba3036'
+	
+	var hash = CryptoJS.MD5(ts + api_key + priv_key);	
+	
+var url= 'http://gateway.marvel.com:80/v1/public/characters?name=Moon%20Knight&ts=" + ts + "&apikey=a5ad02819feafe2a24e116ff36d7d4a0';
 		
 	
 	var ts = $.now();
