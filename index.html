@@ -22,7 +22,7 @@
 	
 	var hash = CryptoJS.MD5(ts + api_key + priv_key);	
 	
-var url= 'http://gateway.marvel.com:80/v1/public/characters?name=Moon%20Knight&ts=" + ts + "&apikey=a5ad02819feafe2a24e116ff36d7d4a0';
+var url= 'http://gateway.marvel.com:80/v1/public/characters?name=Moon%20Knight&ts='+ ts +'&apikey=a5ad02819feafe2a24e116ff36d7d4a0';
 		
 	
 	var ts = $.now();
