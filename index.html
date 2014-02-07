@@ -10,9 +10,22 @@
 
 	</head>
 <body>
+<script>
+$( "div.cageHawk" )
+  .mouseover(function() {
+      $( this ).find( "span" ).text( "Hawkeye");
+  })
+  .mouseout(function() {
+    $( this ).find( "span" ).hide();
+  });
+</script>
+
+<div id="dImages">
+<div class="cageHawk" heigh="100" width="70"></div><img src="https://c3409409.ssl.cf0.rackcdn.com/marvelheroes.vanillaforums.com/DQ56NEMREIWF.jpg" height="90" width="60" onClick="javascript:grabData('Hawkeye');"></div>
+
     <div id="placeholder">
 	
-	<img src="http://icons.iconarchive.com/icons/hopstarter/superhero-avatar/256/Avengers-Hawkeye-icon.png" onClick="javascript:grabData('Hawkeye');">
+	
 	
 	</div>
 
