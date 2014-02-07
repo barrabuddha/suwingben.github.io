@@ -52,7 +52,12 @@ output+="<li> Event Appearance: " + uri[i].name+ "</li>";
 	//alert(page[page.length-1]);
 
 	document.getElementById("placeholder").innerHTML=output;
-	document.getElementById("image").innerHTML=profile;
+	
+  $(function() {
+    $( "#placeholder" ).dialog();
+  });	
+	
+	//document.getElementById("image").innerHTML=profile;
 	});
 }
 	
