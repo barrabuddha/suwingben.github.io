@@ -24,9 +24,9 @@ $( "div.cageHawk" )
 <div class="cageHawk" width="100" height="77"><span>Hawkeye</span><img src="https://c3409409.ssl.cf0.rackcdn.com/marvelheroes.vanillaforums.com/DQ56NEMREIWF.jpg" height="67" width="90" onClick="javascript:grabData('Hawkeye');"></div>
 
     <div id="placeholder">
-	
-	
-	
+
+
+
 	</div>
 
 
@@ -39,26 +39,26 @@ function grabData(name)
 	var priv_key= 'e57282add1f8d2ad4fe622949da16388f7ba3036'
 	var url= 'http://gateway.marvel.com/v1/public/characters?name='+ name + '&apikey=a5ad02819feafe2a24e116ff36d7d4a0';
 	var hash = CryptoJS.MD5(ts + priv_key + api_key);	
-		
+
 		url+= "&ts=" + ts + "&hash=" + hash;
-		
+
 		$.getJSON(url, function(data) {
 
-	var output="<div class="extended"><ul>";
-		
-		output+="<div class="name"><h4>" + data.data.results[0].name+ "</h4>";
+	var output="<ul>";
+
+		output+="<li>" + data.data.results[0].name+ "</li>";
 
    for (var i in data.data.results[0].comics.items) {
-	
-			output+="</div><div class="comics"><h4>Comic Appearances:</h4><li>" + data.data.results[0].comics.items[i].name + "</li>";
+
+			output+="<li> Comic Appearance:" + data.data.results[0].comics.items[i].name + "</li>";
 }	
 
 uri = data.data.results[0].events.items;
 
    for (var i in uri) {
-output+=:"</div><div class="events"><li> Event Appearance: " + uri[i].name+ "</li>";
+output+="<li> Event Appearance: " + uri[i].name+ "</li>";
 }
-	output+="</ul></div>";
+	output+="</ul>";
 
 	//alert(timestamp);
 	//alert(api_key);
@@ -67,16 +67,16 @@ output+=:"</div><div class="events"><li> Event Appearance: " + uri[i].name+ "</l
 	//alert(page[page.length-1]);
 
 	document.getElementById("placeholder").innerHTML=output;
-	
+
   $(function() {
     $( "#placeholder" ).dialog();
   });	
-	
+
 	//document.getElementById("image").innerHTML=profile;
 	});
 }
-	
-	
-	
+
+
+
 	</script>
 	</body>
