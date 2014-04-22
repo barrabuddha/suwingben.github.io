@@ -52,13 +52,13 @@ function grabData(name)
 
    for (var i in data.data.results[0].comics.items) {
 
-			comiclist="Comic Appearances:" + data.data.results[0].comics.items[i].name;
+			var comiclist="Comic Appearances:" + data.data.results[0].comics.items[i].name;
 }	
 
 uri = data.data.results[0].events.items;
 
    for (var i in uri) {
-eventlist="<h3>Event Appearances:</h3>" + uri[i].name+ "</li>";
+var eventlist="<h3>Event Appearances:</h3>" + uri[i].name+ "</li>";
 }
 	//output+="</ul>";
 
@@ -70,7 +70,7 @@ eventlist="<h3>Event Appearances:</h3>" + uri[i].name+ "</li>";
 
 	document.getElementById("placeholder").innerHTML=output;
 	document.getElementById("heronames").innerHTML=heroname;
-//	document.getElementById("Comics").innerHTML=comiclist;
+	document.getElementById("herocomics").innerHTML=comiclist;
 //	document.getElementById("Event").innerHTML=eventlist;
 
 
