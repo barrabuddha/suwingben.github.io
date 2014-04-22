@@ -51,16 +51,16 @@ function grabData(name)
 
 		var heroname="<h3>" + data.data.results[0].name+ "</h3>";
 
+   var comiclist="Comic Appearances:";
    for (var i in data.data.results[0].comics.items) {
-
-			var comiclist="Comic Appearances:"
 			comiclist+="<br>" + data.data.results[0].comics.items[i].name;
 }	
 
 uri = data.data.results[0].events.items;
 
    for (var i in uri) {
-var eventlist="<h3>Event Appearances:</h3>" + uri[i].name;
+var eventlist="<h3>Event Appearances:</h3>";
+eventlist+="<br>" + uri[i].name;
 }
 	//output+="</ul>";
 
@@ -73,7 +73,7 @@ var eventlist="<h3>Event Appearances:</h3>" + uri[i].name;
 	//document.getElementById("placeholder").innerHTML=output;
 	document.getElementById("heronames").innerHTML=heroname;
 	document.getElementById("herocomics").innerHTML=comiclist;
-//	document.getElementById("Event").innerHTML=eventlist;
+	document.getElementById("heroevent").innerHTML=eventlist;
 
 
 //  $(function() {
