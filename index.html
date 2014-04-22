@@ -57,9 +57,9 @@ function grabData(name)
 }	
 
 uri = data.data.results[0].events.items;
-
-   for (var i in uri) {
 var eventlist="<h3>Event Appearances:</h3>";
+   for (var i in uri) {
+
 eventlist+="<br>" + uri[i].name;
 }
 	//output+="</ul>";
