@@ -44,21 +44,21 @@ function grabData(name)
 		
 		$.getJSON(url, function(data) {
 
-	var output="<ul>";
+	var output="<div class="extended"><ul>";
 		
-		output+="<li>" + data.data.results[0].name+ "</li>";
+		output+="<div class="name"><h4>" + data.data.results[0].name+ "</h4>";
 
    for (var i in data.data.results[0].comics.items) {
 	
-			output+="<li> Comic Appearance:" + data.data.results[0].comics.items[i].name + "</li>";
+			output+="</div><div class="comics"><h4>Comic Appearances:</h4><li>" + data.data.results[0].comics.items[i].name + "</li>";
 }	
 
 uri = data.data.results[0].events.items;
 
    for (var i in uri) {
-output+="<li> Event Appearance: " + uri[i].name+ "</li>";
+output+=:"</div><div class="events"><li> Event Appearance: " + uri[i].name+ "</li>";
 }
-	output+="</ul>";
+	output+="</ul></div>";
 
 	//alert(timestamp);
 	//alert(api_key);
