@@ -46,9 +46,9 @@ function grabData(name)
 
 		$.getJSON(url, function(data) {
 
-	var output="<h2>testing!</h2>";
+	//var output="<h2>testing!</h2>";
 
-		var heroname="<h3>" + data.data.results[0].name+ "</h3>";
+		var output="<h3>" + data.data.results[0].name+ "</h3>";
 
    for (var i in data.data.results[0].comics.items) {
 
