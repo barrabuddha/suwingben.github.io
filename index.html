@@ -24,8 +24,9 @@ $( "div.cageHawk" )
 <div class="cageHawk" width="100" height="77"><span>Hawkeye</span><img src="https://c3409409.ssl.cf0.rackcdn.com/marvelheroes.vanillaforums.com/DQ56NEMREIWF.jpg" height="67" width="90" onClick="javascript:grabData('Hawkeye');"></div>
 
     <div id="placeholder">
-
-
+		<div id="Name"></div>
+		<div id="Comics"></div>
+		<div id="Events"</div>
 
 	</div>
 
@@ -44,21 +45,21 @@ function grabData(name)
 
 		$.getJSON(url, function(data) {
 
-	var output="<h2>testing!</h2><ul>";
+	//var output="<h2>testing!</h2><ul>";
 
-		output+="<li>" + data.data.results[0].name+ "</li>";
+		var heroname="<h3>" + data.data.results[0].name+ "</h3>";
 
    for (var i in data.data.results[0].comics.items) {
 
-			output+="<li> Comic Appearance:" + data.data.results[0].comics.items[i].name + "</li>";
+			comiclist="Comic Appearances:" + data.data.results[0].comics.items[i].name;
 }	
 
 uri = data.data.results[0].events.items;
 
    for (var i in uri) {
-output+="<li> Event Appearance: " + uri[i].name+ "</li>";
+eventlist="<h3>Event Appearances:</h3>" + uri[i].name+ "</li>";
 }
-	output+="</ul>";
+	//output+="</ul>";
 
 	//alert(timestamp);
 	//alert(api_key);
@@ -67,6 +68,10 @@ output+="<li> Event Appearance: " + uri[i].name+ "</li>";
 	//alert(page[page.length-1]);
 
 	document.getElementById("placeholder").innerHTML=output;
+	document.getElementById("Name").innerHTML=heroname;
+	document.getElementById("Comics").innerHTML=comiclist;
+	document.getElementById("Event").innerHTML=eventlist;
+
 
 //  $(function() {
 //    $( "#placeholder" ).dialog();
