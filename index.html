@@ -23,12 +23,13 @@ $( "div.cageHawk" )
 <div id="dImages">
 <div class="cageHawk" width="100" height="77"><span>Hawkeye</span><img src="https://c3409409.ssl.cf0.rackcdn.com/marvelheroes.vanillaforums.com/DQ56NEMREIWF.jpg" height="67" width="90" onClick="javascript:grabData('Hawkeye');"></div>
 
-    <div id="placeholder">
+
+		<div id="heronames"></div>
 		<div id="herocomics"></div>
 		<div id="heroevents"</div>
 
-	</div>
-			<div id="heronames"></div>
+
+			
 
 
 
@@ -52,13 +53,14 @@ function grabData(name)
 
    for (var i in data.data.results[0].comics.items) {
 
-			var comiclist="Comic Appearances:" + data.data.results[0].comics.items[i].name;
+			var comiclist="Comic Appearances:"
+			comiclist+="<br>" + data.data.results[0].comics.items[i].name;
 }	
 
 uri = data.data.results[0].events.items;
 
    for (var i in uri) {
-var eventlist="<h3>Event Appearances:</h3>" + uri[i].name+ "</li>";
+var eventlist="<h3>Event Appearances:</h3>" + uri[i].name;
 }
 	//output+="</ul>";
 
