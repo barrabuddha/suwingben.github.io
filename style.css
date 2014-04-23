@@ -1,0 +1,38 @@
+.herocard
+{
+width:220px;
+height:460px;
+padding:10px;
+border:5px solid gray;
+margin:0px;
+
+}
+#cagehawk{
+  width: 256px;
+}
+#cagehawk .wrap{
+  width: 256px;
+  height: 256px;
+  overflow: hidden;
+  position: relative;
+}
+#cagehawk .wrap img{
+  position: relative;
+}
+#cagehawk .wrap span.comment{
+  background-color: yellow;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background-color: #000000;
+  padding: 2px;
+  display: none;
+}
+#cagehawk .wrap:hover span.comment{
+  display: block;
+}
+#cagehawk .wrap:hover span.comment a{
+  text-decoration: none;
+  color: #ffffff;
+}
+
