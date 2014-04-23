@@ -3,9 +3,10 @@
 <head>
     <meta charset="utf-8" />
     <title>JSON Sample</title>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.9.1.js"></script>
-  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
   <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
 
 	</head>
@@ -27,7 +28,7 @@ $( "div.cageHawk" )
 <div class="cageHawk" width="100" height="77"><span>Hawkeye</span><img src="https://c3409409.ssl.cf0.rackcdn.com/marvelheroes.vanillaforums.com/DQ56NEMREIWF.jpg" height="67" width="90" onClick="javascript:grabData('Hawkeye');"></div>
 		<div id="heronames"></div>
 		<div id="herocomics"></div>
-		<div id="heroevents"</div>
+		<div id="heroevents"></div>
 
 </div>
 			
@@ -50,15 +51,15 @@ function grabData(name)
 
 	//var output="<h2>testing!</h2>";
 
-		var heroname="<h3>" + data.data.results[0].name+ "</h3>";
+		var heroname="<p id='sectionhead'>" + data.data.results[0].name+ "</p>";
 
-   var comiclist="Comic Appearances:";
-   for (var i in data.data.results[0].comics.items) {
-			comiclist+="<br>" + data.data.results[0].comics.items[i].name;
-}	
+//   var comiclist="<p id='sectionhead'>Comic Appearances:</p>";
+//   for (var i in data.data.results[0].comics.items) {
+//			comiclist+="<br>" + data.data.results[0].comics.items[i].name;
+//}	
 
-uri = data.data.results[0].events.items;
-var eventlist="<h3>Event Appearances:</h3>";
+var uri = data.data.results[0].events.items;
+var eventlist="<p id='sectionhead'>Event Appearances</p>";
    for (var i in uri) {
 
 eventlist+="<br>" + uri[i].name;
@@ -73,7 +74,7 @@ eventlist+="<br>" + uri[i].name;
 
 	//document.getElementById("placeholder").innerHTML=output;
 	document.getElementById("heronames").innerHTML=heroname;
-	document.getElementById("herocomics").innerHTML=comiclist;
+	//document.getElementById("herocomics").innerHTML=comiclist;
 	document.getElementById("heroevents").innerHTML=eventlist;
 
 
