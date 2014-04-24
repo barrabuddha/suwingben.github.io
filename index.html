@@ -8,50 +8,79 @@
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
   <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
   <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
 
 	</head>
 <body>
-<script>
-$( "div.cageHawk" )
-  .mouseover(function() {
-      $( this ).find( "span" ).text( "Hawkeye");
-  })
-  .mouseout(function() {
-    $( this ).find( "span" ).hide();
-  });
-</script>
 
-
-
-<div class="herocard">
-<div id="dImages">
-<div class="cageHawk" width="100" height="77"><span>Hawkeye</span><img src="https://c3409409.ssl.cf0.rackcdn.com/marvelheroes.vanillaforums.com/DQ56NEMREIWF.jpg" height="67" width="90" onClick="javascript:grabData('Hawkeye');"></div>
-		<div id="heronames"></div>
-		<div id="herocomics"></div>
-		<div id="heroevents"></div>
-
+<div id='container'>
+<img src="http://cdn.vanillaforums.com/marvelheroes.vanillaforums.com/MV7RHS87U41L.jpg" onClick="javascript:grabData('Iron Man');">
+<img src="http://cdn.vanillaforums.com/marvelheroes.vanillaforums.com/IQURTEIRC6W2.jpg" onClick="javascript:grabData('Daredevil');">
+<img src="http://cdn.vanillaforums.com/marvelheroes.vanillaforums.com/4A17Y5AP03EF.jpg" onClick="javascript:grabData('Spider-Man');">
+<img src="http://cdn.vanillaforums.com/marvelheroes.vanillaforums.com/G55HALEJMQ5J.jpg" onClick="javascript:grabData('Hulk');">
 </div>
+<div class="herocard">
+		<div id="empty"><H3>No Hero Selected; Data not located.</h3></div>
+		<div class="test" id="heronames"></div>
+		<div class="test" id="herobio"></div>
+		<div class="test" id="heroevents"></div>
+		<div class="test" id="heropower"></div>
+</div>
+<button id="show">Clear Data</button>
 			
 
 
 
     <script>
+$( "img" ).click(function() {
+  $( "#empty" ).hide( "slow", function() {
+
+  });
+});
+
+$( "img" ).click(function() {
+  $( ".test" ).show( "slow", function() {
+
+  });
+});
+
+$( "button" ).click(function() {
+  $( "#empty" ).toggle( "slow", function() {
+
+  });
+});
+
+$( "button" ).click(function() {
+  $( ".test" ).toggle( "slow", function() {
+
+  });
+});
+
+	
+	
+	
 function grabData(name)
 {
+	
+	
+	
+	
+	
 	var name = name;
 	var ts = $.now();
 	var api_key= 'a5ad02819feafe2a24e116ff36d7d4a0'
 	var priv_key= 'e57282add1f8d2ad4fe622949da16388f7ba3036'
 	var url= 'http://gateway.marvel.com/v1/public/characters?name='+ name + '&apikey=a5ad02819feafe2a24e116ff36d7d4a0';
 	var hash = CryptoJS.MD5(ts + priv_key + api_key);	
-
+	var powergraph;
 		url+= "&ts=" + ts + "&hash=" + hash;
 
 		$.getJSON(url, function(data) {
 
 	//var output="<h2>testing!</h2>";
 
-		var heroname="<p id='sectionhead'>" + data.data.results[0].name+ "</p>";
+		var heroname="<h4>" + data.data.results[0].name+ "</h4>";
+		var herobiog="<h4>Hero Information</h4><p>" + data.data.results[0].description + "</p>";
 
 //   var comiclist="<p id='sectionhead'>Comic Appearances:</p>";
 //   for (var i in data.data.results[0].comics.items) {
@@ -59,7 +88,7 @@ function grabData(name)
 //}	
 
 var uri = data.data.results[0].events.items;
-var eventlist="<p id='sectionhead'>Event Appearances</p>";
+var eventlist="<h4>Event Appearances</h4>";
    for (var i in uri) {
 
 eventlist+="<br>" + uri[i].name;
@@ -74,9 +103,37 @@ eventlist+="<br>" + uri[i].name;
 
 	//document.getElementById("placeholder").innerHTML=output;
 	document.getElementById("heronames").innerHTML=heroname;
-	//document.getElementById("herocomics").innerHTML=comiclist;
+	document.getElementById("herobio").innerHTML=herobiog;
 	document.getElementById("heroevents").innerHTML=eventlist;
+if (name =='Iron Man')
+{
+powergraph="<h4>Power Levels</h4><ul class='bargraph'><li class='redpink'>Intelligence</li><li class='redpink'>Strength</li><li class='orange'>Speed</li><li class='redpink'>Durability</li><li class='redpink'>Energy</li><li class='yellow'>Fighting</li></ul>";
 
+document.getElementById("heropower").innerHTML=powergraph;
+}
+
+else if (name == 'Hulk')
+{
+powergraph="<h4>Power Levels</h4><ul class='bargraph'><li class='greenblue'>Intelligence</li><li class='reddeep'>Strength</li><li class='green'>Speed</li><li class='reddeep'>Durability</li><li class='yellow '>Energy</li><li class='orange'>Fighting</li></ul>";
+
+document.getElementById("heropower").innerHTML=powergraph;
+}
+
+else if (name == "Spider-Man")
+{
+powergraph="<h4>Power Levels</h4><ul class='bargraph'><li class='greenbright'>Intelligence</li><li class='greenblue'>Strength</li><li class='greenblue'>Speed</li><li class='greenblue'>Durability</li><li class='blue'>Energy</li><li class='orange'>Fighting</li></ul>";
+
+document.getElementById("heropower").innerHTML=powergraph;
+}
+
+else if (name == "Daredevil")
+{
+powergraph="<h4>Power Levels</h4><ul class='bargraph'><li class='greenbright'>Intelligence</li><li class='greenblue'>Strength</li><li class='greenblue'>Speed</li><li class='greenblue'>Durability</li><li class='blue'>Energy</li><li class='orange'>Fighting</li></ul>";
+
+document.getElementById("heropower").innerHTML=powergraph;
+}	
+
+	
 
 //  $(function() {
 //    $( "#placeholder" ).dialog();
@@ -84,8 +141,10 @@ eventlist+="<br>" + uri[i].name;
 
 	//document.getElementById("image").innerHTML=profile;
 	});
-}
 
+
+
+}
 
 
 	</script>
