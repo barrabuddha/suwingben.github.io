@@ -1,38 +1,105 @@
 .herocard
 {
-width:220px;
-height:460px;
+width:250px;
 padding:10px;
 border:5px solid gray;
 margin:0px;
-
-}
-#cagehawk{
-  width: 256px;
-}
-#cagehawk .wrap{
-  width: 256px;
-  height: 256px;
-  overflow: hidden;
-  position: relative;
-}
-#cagehawk .wrap img{
-  position: relative;
-}
-#cagehawk .wrap span.comment{
-  background-color: yellow;
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  background-color: #000000;
-  padding: 2px;
-  display: none;
-}
-#cagehawk .wrap:hover span.comment{
-  display: block;
-}
-#cagehawk .wrap:hover span.comment a{
-  text-decoration: none;
-  color: #ffffff;
+margin-left:525px;
 }
 
+#container
+{
+width:250px;
+padding:10px;
+border:5px solid gray;
+margin:0px;
+margin-left:525px;
+}
+
+body
+{
+background-color:#ffffff;
+}
+
+#testing
+{
+}
+
+
+#show
+{
+width:280px;
+padding:10px;
+border:5px solid gray;
+margin:0px;
+margin-left:525px;
+}
+
+.bargraph {
+    list-style: none;
+    padding-top: 20px;
+    width:180px;
+    }
+
+ul.bargraph li {
+    height: 35px;
+    color: #000000;
+    text-align: left;
+    font-weight:bolder;
+    font-size: 14px;
+    line-height: 35px;
+    padding: 0px 20px;
+    margin-bottom: 5px;
+	margin-right: 250px;
+    }
+	
+ul.bargraph li.reddeep {
+background: #CECFCE;
+width:100%;
+}
+ 
+ul.bargraph li.redpink {
+background: #CECFCE;
+width:90%;
+}
+ 
+ul.bargraph li.pink {
+background: #CECFCE;
+width:80%;
+}
+ 
+ul.bargraph li.orangered {
+background: #CECFCE;
+width:70%;
+}
+ 
+ul.bargraph li.orange {
+background: #CECFCE;
+width:60%;
+}
+ 
+ul.bargraph li.yellow {
+background: #CECFCE;
+width:50%;
+}
+ 
+ul.bargraph li.green {
+background: #CECFCE;
+width:40%;
+}
+ 
+ul.bargraph li.greenbright {
+background: #CECFCE;
+width:30%;
+}
+ 
+ul.bargraph li.greenblue {
+background: #CECFCE;
+width:20%;
+}
+ 
+ul.bargraph li.blue {
+background: #CECFCE;
+width:10%;
+}
+ 
